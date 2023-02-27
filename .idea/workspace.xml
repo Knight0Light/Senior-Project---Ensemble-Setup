@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c04249f7-ec24-4547-8ada-a4588453d8be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROOT/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/backend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROOT/templates/D&amp;D_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/templates/stage_setup.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,5 +45,16 @@
       <updated>1675700024946</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
