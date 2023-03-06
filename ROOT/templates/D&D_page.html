@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <header>
-        <p>This is the drag and drop app page. We need to get our JS libraries figured out so we can start putting together some functional stuff here.</p>
-    </header>
-</body>
+<html>
+    <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+
+    <div id="myDiagramDiv"
+     style="width:800px; height:800px; background-color: #DAE4E4;"></div>
+     
+     
+     <script>
+        const myDiagram =
+    new go.Diagram("myDiagramDiv",
+        { // enable Ctrl-Z to undo and Ctrl-Y to redo
+        "undoManager.isEnabled": true
+        });
+
+    myDiagram.model = new go.Model(
+    [ // for each object in this Array, the Diagram creates a Node to represent it
+        { key: "A" },
+        { key: "B" },
+        { key: "C" },
+        { key: "D" },
+        { key: "E" }
+    ]);
+     </script>
 </html>
