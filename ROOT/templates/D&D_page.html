@@ -2,23 +2,59 @@
     <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
 
     <div id="myDiagramDiv"
-     style="width:800px; height:800px; background-color: #DAE4E4;"></div>
+     style="width:500px; height:500px; background-color: #DAE4E4;"></div>
      
      
      <script>
-        const myDiagram =
-    new go.Diagram("myDiagramDiv",
+        const myDiagram = new go.Diagram("myDiagramDiv",
         { // enable Ctrl-Z to undo and Ctrl-Y to redo
         "undoManager.isEnabled": true
         });
 
-    myDiagram.model = new go.Model(
-    [ // for each object in this Array, the Diagram creates a Node to represent it
-        { key: "A" },
-        { key: "B" },
-        { key: "C" },
-        { key: "D" },
-        { key: "E" }
-    ]);
+        //Creates model to insert nodes into
+        myDiagram.model = new go.Model([]);
+
+        function addSquare() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("RoundedRectangle", {
+                    fill: "lightblue",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
+
+        function addCircle() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("Ellipse", {
+                    fill: "red",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
+
+        function addTriangle() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("TriangleUp", {
+                    fill: "green",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
      </script>
+
+     <button onclick="addSquare()">Square</button>
+     <button onclick="addCircle()">Circle</button>
+     <button onclick="addTriangle()">Triangle</button>
 </html>
