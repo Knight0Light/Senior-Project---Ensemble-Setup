@@ -9,3 +9,6 @@ app = Flask(__name__, static_url_path='/static')
 @app.route('/')
 def DandD_page():
     return render_template("D&D_page.html")
+
+
+app.run(port=5001)
