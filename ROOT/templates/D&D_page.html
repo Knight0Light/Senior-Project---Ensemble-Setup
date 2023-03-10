@@ -13,4 +13,58 @@
         </div>
         <button   type="button"   id="export_button"   onclick="exportToPDF()">Export to PDF</button>
      </body>
+
+     <script>
+        const myDiagram = new go.Diagram("myDiagramDiv",
+        { // enable Ctrl-Z to undo and Ctrl-Y to redo
+        "undoManager.isEnabled": true
+        });
+
+        //Creates model to insert nodes into
+        myDiagram.model = new go.Model([]);
+
+        function addSquare() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("RoundedRectangle", {
+                    fill: "lightblue",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
+
+        function addCircle() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("Ellipse", {
+                    fill: "red",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
+
+        function addTriangle() {
+            myDiagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape("TriangleUp", {
+                    fill: "green",
+                    strokeWidth: 3
+                }))
+                .add(new go.TextBlock(" ", {
+                    margin: 5
+                }))
+            );
+        }
+     </script>
+
+     <button onclick="addSquare()">Square</button>
+     <button onclick="addCircle()">Circle</button>
+     <button onclick="addTriangle()">Triangle</button>
+
 </html>
