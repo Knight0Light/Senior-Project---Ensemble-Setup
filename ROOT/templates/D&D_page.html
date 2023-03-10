@@ -1,24 +1,16 @@
 <html>
+    <!--GO.JS CDN-->
     <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
-
-    <div id="myDiagramDiv"
-     style="width:800px; height:800px; background-color: #DAE4E4;"></div>
+    <!--EXPORT CDNs-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <!--CONNECT TO JAVASCRIPT FILE-->
+    <script src="/static/Javascript.js"></script>
      
      
-     <script>
-        const myDiagram =
-    new go.Diagram("myDiagramDiv",
-        { // enable Ctrl-Z to undo and Ctrl-Y to redo
-        "undoManager.isEnabled": true
-        });
-
-    myDiagram.model = new go.Model(
-    [ // for each object in this Array, the Diagram creates a Node to represent it
-        { key: "A" },
-        { key: "B" },
-        { key: "C" },
-        { key: "D" },
-        { key: "E" }
-    ]);
-     </script>
+     <body   id="D&D_body"   onload="JSMain()">
+        <div   id="myDiagramDiv"   style="width:800px; height:800px; background-color: #DAE4E4;">
+        </div>
+        <button   type="button"   id="export_button"   onclick="exportToPDF()">Export to PDF</button>
+     </body>
 </html>
