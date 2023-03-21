@@ -2,7 +2,7 @@ function JSMain(){                              //MAIN FUNCTION
     //DECLARE VARIABLES
 
     //CREATE DIAGRAM
-    const diagram = new go.Diagram("myDiagramDiv",{"undoManager.isEnabled": true});
+    window.diagram = new go.Diagram("myDiagramDiv",{"undoManager.isEnabled": true});
 
     //DEFINE NODE TEMPLATE
     diagram.nodeTemplate =
@@ -15,23 +15,7 @@ function JSMain(){                              //MAIN FUNCTION
         .bind("text", "key"));
 
     //DEFINE MODEL
-    diagram.model = new go.GraphLinksModel(
-    [ // a JavaScript Array of JavaScript objects, one per node;
-      // the "color" property is added specifically for this app
-      { key: "Alpha", color: "lightblue" },
-      { key: "Beta", color: "orange" },
-      { key: "Gamma", color: "lightgreen" },
-      { key: "Delta", color: "pink" }
-    ],
-    [ // a JavaScript Array of JavaScript objects, one per link
-      { from: "Alpha", to: "Beta" },
-      { from: "Alpha", to: "Gamma" },
-      { from: "Beta", to: "Beta" },
-      { from: "Gamma", to: "Delta" },
-      { from: "Delta", to: "Alpha" }
-    ]);
-
-
+    diagram.model = new go.Model([]);
 
 }//end JSMain
 
@@ -51,6 +35,45 @@ function exportToPDF(){                         //EXPORT BUTTON
         jsPDF:      {unit: "in", format: "letter", orientation: "portrait", precision: "12"}
     };
     html2pdf().set(options).from(image).save();
-
-
 }//end exportToPDF
+
+
+
+function addSquare() {                          //ADD SQUARE
+    diagram.add(
+    new go.Node("Auto")
+        .add(new go.Shape("RoundedRectangle", {
+            fill: "lightblue",
+            strokeWidth: 3
+        }))
+        .add(new go.TextBlock(" ", {
+            margin: 5
+        }))
+    );
+}//end addSquare
+
+function addCircle() {
+    diagram.add(
+    new go.Node("Auto")
+        .add(new go.Shape("Ellipse", {
+            fill: "red",
+            strokeWidth: 3
+        }))
+        .add(new go.TextBlock(" ", {
+            margin: 5
+        }))
+    );
+}
+
+function addTriangle() {
+    diagram.add(
+    new go.Node("Auto")
+        .add(new go.Shape("TriangleUp", {
+            fill: "green",
+            strokeWidth: 3
+        }))
+        .add(new go.TextBlock(" ", {
+            margin: 5
+        }))
+    );
+}
