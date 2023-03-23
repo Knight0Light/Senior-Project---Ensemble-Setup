@@ -4,7 +4,13 @@
     <list default="true" id="c04249f7-ec24-4547-8ada-a4588453d8be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ROOT/static/Javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/static/Javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROOT/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ROOT/templates/D&amp;D_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/templates/D&amp;D_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint_1_0/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint_1_0/static/PolygonDrawingTool.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint_1_0/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint_1_0/static/test_1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint_1_0/templates/test.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +38,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ROOT/backend.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ROOT/static" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Connor Roeckel\Documents\GitHub\Senior-Project---Ensemble-Setup\ROOT\static" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="App" type="PythonConfigurationType" factoryName="Python">
