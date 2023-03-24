@@ -1,30 +1,30 @@
 <html>
-    <!--GO.JS CDN-->
-    <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
-    <!--EXPORT CDNs-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-    <!--CONNECT TO JAVASCRIPT FILES-->
-    <script src="/static/Javascript.js"></script>
-    <script src="/static/PolygonDrawingTool.js"></script>
-     
+    <head>
+        <!--GO.JS CDN-->
+        <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+        <!--EXPORT CDNs-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+        <!--CONNECT TO JAVASCRIPT FILES-->
+        <script src="/static/Javascript.js"></script>
+        <script src="/static/PolygonDrawingTool.js"></script>
+    </head>
      
      <body   id="D&D_body">
-        <div   id="myDiagramDiv"   style="width:800px; height:800px; background-color: #DAE4E4;">
+        <div   id="diagramDiv"   style="width:800px; height:800px; background-color: #DAE4E4;">
         </div>
-
-        <div class="buttons">
-            <button id="selectShape">Select</button>
-            <button id="drawStage">Draw Stage</button>
-            <button id="finishDrawing">Finish Drawing</button>
-        </div>
-        <div>
-            <button onclick="addSquare()">Square</button>
-            <button onclick="addCircle()">Circle</button>
-            <button onclick="addTriangle()">Triangle</button>
-        </div>
-        <button type="button" id="export_button" onclick="exportToPDF()">Export to PDF</button>
      </body>
 
+    <div class="buttons">
+        <button id="selectShapeButton">Select</button>
+        <button id="drawStageButton">Draw Stage</button>
+        <button id="finishDrawingButton">Finish Drawing</button>
+    </div>
+    <div>
+        <button id="squareButton">Square</button>
+        <button id="circleButton">Circle</button>
+        <button id="triangleButton">Triangle</button>
+    </div>
+    <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
 
 </html>

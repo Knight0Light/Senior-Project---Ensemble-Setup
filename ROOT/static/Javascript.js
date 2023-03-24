@@ -3,7 +3,7 @@ function JSMain(){                                  //MAIN FUNCTION
     var $ = go.GraphObject.make;  // $ used to make go.JS objects using the GraphObject abstract class
 
     //CREATE DIAGRAM        adding window makes this global, attaching it to the browser window object
-    window.diagram = $(go.Diagram,  diagramDiv", {"undoManager.isEnabled": true});
+    diagram = $(go.Diagram,  "diagramDiv", {"undoManager.isEnabled": true});
     diagram.toolManager.panningTool.isEnabled = false;
 
     //DEFINE NODE TEMPLATE
@@ -43,9 +43,18 @@ function JSMain(){                                  //MAIN FUNCTION
     // install as first mouse-down-tool
     diagram.toolManager.mouseDownTools.insertAt(0, tool);
 
-    document.getElementById("selectShape").onclick = () => mode(false);
-    document.getElementById("drawStage").onclick = () => mode(true, true);
-    document.getElementById("finishDrawing").onclick = () => finish(true);
+
+    //DEFINE BUTTON LISTENERS
+
+    document.getElementById("selectShapeButton").addEventListener("click", () => mode(false));
+    document.getElementById("drawStageButton").addEventListener("click", () => mode(true, true));
+    document.getElementById("finishDrawingButton").addEventListener("click", () => finish(true));
+
+    document.getElementById("squareButton").addEventListener("click", addSquare);
+    document.getElementById("circleButton").addEventListener("click", addCircle);
+    document.getElementById("triangleButton").addEventListener("click", addTriangle);
+
+    document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
 
     //DEFINE FUNCTIONS
@@ -114,7 +123,7 @@ function JSMain(){                                  //MAIN FUNCTION
         if (draw) diagram.currentTool = tool;
     }
 
-      // this command ends the PolygonDrawingTool
+    // this command ends the PolygonDrawingTool
     function finish(commit) {
         var tool = diagram.currentTool;
         if (commit && tool instanceof PolygonDrawingTool) {
