@@ -50,9 +50,9 @@ function JSMain(){                                  //MAIN FUNCTION
     document.getElementById("drawStageButton").addEventListener("click", () => mode(true, true));
     document.getElementById("finishDrawingButton").addEventListener("click", () => finish(true));
 
-    document.getElementById("squareButton").addEventListener("click", addSquare);
-    document.getElementById("circleButton").addEventListener("click", addCircle);
-    document.getElementById("triangleButton").addEventListener("click", addTriangle);
+    document.getElementById("squareButton").addEventListener("click", addNode("RoundedRectangle","lightblue", " "));
+    document.getElementById("circleButton").addEventListener("click", addNode("Ellipse","red"," "));
+    document.getElementById("triangleButton").addEventListener("click", addNode("TriangleUp","green"," "));
 
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
@@ -110,6 +110,20 @@ function JSMain(){                                  //MAIN FUNCTION
             .add(new go.TextBlock(" ", {
                 margin: 5
             }))
+        );
+    }
+
+    //New function for adding shapes
+    function addNode(nodeType, color, text= " "){
+        diagram.add(
+            new go.Node("Auto")
+                .add(new go.Shape(nodeType, {
+                    fill: color,
+                    strokewidth: 3
+                }))
+                .add(new go.TextBlock(text, {
+                    margin: 5
+                }))
         );
     }
 
