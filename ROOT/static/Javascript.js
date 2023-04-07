@@ -3,7 +3,12 @@ function JSMain(){                                  //MAIN FUNCTION
     var $ = go.GraphObject.make;  // $ used to make go.JS objects using the GraphObject abstract class
 
     //CREATE DIAGRAM        adding window makes this global, attaching it to the browser window object
-    diagram = $(go.Diagram,  "diagramDiv", {"undoManager.isEnabled": true});
+    diagram = $(go.Diagram,  "diagramDiv", {
+        "undoManager.isEnabled": true,
+        "grid.visible": true,
+        "draggingTool.isGridSnapEnabled": true,
+        "resizingTool.isGridSnapEnabled": true,
+    });
     diagram.toolManager.panningTool.isEnabled = false;
 
     //DEFINE NODE TEMPLATE
@@ -50,9 +55,13 @@ function JSMain(){                                  //MAIN FUNCTION
     document.getElementById("drawStageButton").addEventListener("click", () => mode(true, true));
     document.getElementById("finishDrawingButton").addEventListener("click", () => finish(true));
 
-    document.getElementById("squareButton").addEventListener("click", addNode("RoundedRectangle","lightblue", " "));
-    document.getElementById("circleButton").addEventListener("click", addNode("Ellipse","red"," "));
-    document.getElementById("triangleButton").addEventListener("click", addNode("TriangleUp","green"," "));
+    document.getElementById("squareButton").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " "));
+    document.getElementById("circleButton").addEventListener("click", () => addNode("Ellipse","red"," "));
+    document.getElementById("triangleButton").addEventListener("click", () => addNode("TriangleUp","green"," "));
+
+    // using feet by default for now
+    
+    document.getElementById("ruler_btn").addEventListener("click", () => drawRuler('ft', ));
 
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
@@ -74,49 +83,11 @@ function JSMain(){                                  //MAIN FUNCTION
         html2pdf().set(options).from(image).save();
     }//end exportToPDF
 
-    function addSquare() {                          //ADD SQUARE
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("RoundedRectangle", {
-                fill: "lightblue",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }//end addSquare
-
-    function addCircle() {
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("Ellipse", {
-                fill: "red",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }
-
-    function addTriangle() {
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("TriangleUp", {
-                fill: "green",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }
-
     //New function for adding shapes
     function addNode(nodeType, color, text= " "){
         diagram.add(
-            new go.Node("Auto")
+            new go.Node("Auto", {resizable: true,
+                rotatable: true})
                 .add(new go.Shape(nodeType, {
                     fill: color,
                     strokewidth: 3
@@ -147,6 +118,39 @@ function JSMain(){                                  //MAIN FUNCTION
         }
         else {
             tool.doCancel();
+        }
+    }
+
+    function drawRuler(unit)
+    {
+        ruler_num = document.getElementById("ft_num").value;
+        ruler_width = ruler_num * 50;
+        ruler_string = ruler_num + "ft.";
+        // only using feet currently for testing
+        // grid cells are 10x10 by default. Feet will be 5 whatevers
+        if(unit == 'ft')
+        {
+            diagram.add(
+                new go.Node("Auto", {
+                    rotatable: true})
+                    .add(new go.Shape("LineH", {
+                        fill: null,
+                        strokewidth: 10,
+                        width: ruler_width,
+                        row: 0,
+                        column: 0
+
+                    }))
+                    .add(new go.TextBlock(ruler_string, {
+                        margin: 5,
+                        row: 1,
+                        column: 0
+                    }))
+            );
+        }
+        else
+        {
+            console.log("Placeholder for inches")
         }
     }
 
