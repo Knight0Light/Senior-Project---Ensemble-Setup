@@ -27,6 +27,7 @@
 * This tool uses a temporary {@link Shape}, {@link #temporaryShape}, held by a {@link Part} in the "Tool" layer,
 * to show interactively what the user is drawing.
 */
+
 function PolygonDrawingTool() {
   go.Tool.call(this);
   this.name = "PolygonDrawing";
@@ -267,8 +268,37 @@ PolygonDrawingTool.prototype.finishShape = function() {
       if (shape !== null) shape.geometry = geo;
       this.transactionResult = this.name;
     }
+    this.stopTool();
+    //get us out of draw mode
+    mode(false);
+
+    //handle seating population
+    //what does user want with this shape
+    $( function() {
+        $( "#populate_chairs_confirm" ).dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: {
+                "No": function() {
+                    $( this ).dialog( "close" );
+                },
+                "Yes": function() {
+                    $( this ).dialog( "close" );
+                    var seatZone = shape.naturalBounds;
+                    
+                    //figure out coordinate bounds for chairs
+
+                    //fill shape with chairs
+
+                }
+            }
+        });
+    } );
+
+
   }
-  this.stopTool();
 };
 
 /**
@@ -340,7 +370,7 @@ PolygonDrawingTool.prototype.undo = function() {
 };
 
 
-// Public properties
+// PUBLIC PROPERTIES
 
 /**
 * Gets or sets whether this tools draws a filled polygon or an unfilled open polyline.

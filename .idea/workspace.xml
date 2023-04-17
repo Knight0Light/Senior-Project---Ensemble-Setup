@@ -4,6 +4,7 @@
     <list default="true" id="c04249f7-ec24-4547-8ada-a4588453d8be" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ROOT/static/Javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/static/Javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROOT/static/PolygonDrawingTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/static/PolygonDrawingTool.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ROOT/templates/D&amp;D_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/ROOT/templates/D&amp;D_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -56,6 +56,7 @@ function JSMain(){                                  //MAIN FUNCTION
 
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
+    document.getElementById("Connor's Test Button").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " ", parseInt(document.getElementById("xtest").value), parseInt(document.getElementById("ytest").value), parseInt(document.getElementById("sizetest").value)));
 
     //DEFINE FUNCTIONS
     function exportToPDF(){                         //EXPORT BUTTON
@@ -74,45 +75,6 @@ function JSMain(){                                  //MAIN FUNCTION
         html2pdf().set(options).from(image).save();
     }//end exportToPDF
 
-    function addSquare() {                          //ADD SQUARE
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("RoundedRectangle", {
-                fill: "lightblue",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }//end addSquare
-
-    function addCircle() {
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("Ellipse", {
-                fill: "red",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }
-
-    function addTriangle() {
-        diagram.add(
-        new go.Node("Auto")
-            .add(new go.Shape("TriangleUp", {
-                fill: "green",
-                strokeWidth: 3
-            }))
-            .add(new go.TextBlock(" ", {
-                margin: 5
-            }))
-        );
-    }
-
     //New function for adding shapes
     function addNode(nodeType, color, text= " "){
         diagram.add(
@@ -125,6 +87,23 @@ function JSMain(){                                  //MAIN FUNCTION
                     margin: 5
                 }))
         );
+    }
+
+    //New function for adding shapes at a specific x,y
+    function addNode(nodeType, color, text= " ", xcord, ycord, size){
+        var node = new go.Node("Auto")
+            .add(new go.Shape(nodeType, {
+                //geometry: new go.Geometry(startX=xcord, startY=ycord, endX=xcord+size, endY=ycord+size),
+                width: size,
+                height: size,
+                fill: color,
+                strokewidth: 3
+            }))
+            .add(new go.TextBlock(text, {
+                margin: 5
+            }))
+        node.location = new go.Point(xcord, ycord);
+        diagram.add(node);
     }
 
     function mode(draw, polygon) {
