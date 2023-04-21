@@ -65,6 +65,7 @@ function JSMain(){                                  //MAIN FUNCTION
 
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
+    document.getElementById("Connor's Test Button").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " ", parseInt(document.getElementById("xtest").value), parseInt(document.getElementById("ytest").value), parseInt(document.getElementById("sizetest").value)));
 
     //DEFINE FUNCTIONS
     function exportToPDF(){                         //EXPORT BUTTON
@@ -96,6 +97,23 @@ function JSMain(){                                  //MAIN FUNCTION
                     margin: 5
                 }))
         );
+    }
+
+    //New function for adding shapes at a specific x,y
+    function addNode(nodeType, color, text= " ", xcord, ycord, size){
+        var node = new go.Node("Auto")
+            .add(new go.Shape(nodeType, {
+                //geometry: new go.Geometry(startX=xcord, startY=ycord, endX=xcord+size, endY=ycord+size),
+                width: size,
+                height: size,
+                fill: color,
+                strokewidth: 3
+            }))
+            .add(new go.TextBlock(text, {
+                margin: 5
+            }))
+        node.location = new go.Point(xcord, ycord);
+        diagram.add(node);
     }
 
     function mode(draw, polygon) {
