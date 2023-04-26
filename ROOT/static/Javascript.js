@@ -50,9 +50,9 @@ function JSMain(){                                  //MAIN FUNCTION
     document.getElementById("drawStageButton").addEventListener("click", () => mode(true, true));
     document.getElementById("finishDrawingButton").addEventListener("click", () => finish(true));
 
-    document.getElementById("squareButton").addEventListener("click", addNode("RoundedRectangle","lightblue", " "));
-    document.getElementById("circleButton").addEventListener("click", addNode("Ellipse","red"," "));
-    document.getElementById("triangleButton").addEventListener("click", addNode("TriangleUp","green"," "));
+    document.getElementById("squareButton").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " "));
+    document.getElementById("circleButton").addEventListener("click", () => addNode("Ellipse","red"," "));
+    document.getElementById("triangleButton").addEventListener("click", () => addNode("TriangleUp","green"," "));
 
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
