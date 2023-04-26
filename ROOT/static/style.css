@@ -27,3 +27,16 @@
     margin-left: 40px;
 }
 
+
+#page {
+    width: 100%;
+}
+
+#menu {
+    float: left;
+    width: 20%;
+}
+
+#workspace {
+    margin-left: 20%;
+}
