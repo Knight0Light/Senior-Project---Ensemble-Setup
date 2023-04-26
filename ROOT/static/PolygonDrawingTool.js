@@ -287,7 +287,7 @@ PolygonDrawingTool.prototype.finishShape = function() {
                 "Yes": function() {
                     $( this ).dialog( "close" );
                     var seatZone = shape.naturalBounds;
-                    
+                    console.log(seatZone)
                     //figure out coordinate bounds for chairs
 
                     //fill shape with chairs
