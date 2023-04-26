@@ -8,24 +8,44 @@
         <!--CONNECT TO JAVASCRIPT FILES-->
         <script src="/static/Javascript.js"></script>
         <script src="/static/PolygonDrawingTool.js"></script>
+        <!--CSS link-->
+        <link rel="stylesheet" href="/static/style.css">
     </head>
 
     <div style="width: 100%;">
-        <div style="width: 10%; height: 710px; float: left;"> 
+        <div style="width: 10%; height: 710px; float: left;">
+            <h2>Create Area</h2> 
             <div class="buttons">
-                <h2>Create Area</h2>
+                <button id="selectShapeButton">Select</button><br><br>
                 <button id="drawStageButton">Draw Stage</button><br><br>
                 <button id="finishDrawingButton">Finish Drawing</button>
             </div>
             <hr>
-            <div>
-                <h2>Create Node</h2>
+            <h2>Create Shape</h2>
+            <div class="buttons">
                 <button id="squareButton">Square</button><br><br>
                 <button id="circleButton">Circle</button><br><br>
-                <button id="triangleButton">Triangle</button>
+                <button id="triangleButton">Triangle</button><br>
             </div>
             <hr>
-        
+            <h2>Create Instrument</h2>
+            <div class="buttons">
+                <button id="pianoButton">Piano</button>
+                <button id="drumButton">Drum</button>
+                <button id="guitarButton">Guitar</button>
+                <button id="trumpetButton">Trumpet</button>
+                <button id="violinButton">Violin</button>
+            </div>
+            <hr>
+            <!--CONNOR'S TEST-->
+            <div>
+                <h2>Create Auto-populate Area</h2>
+                <input type="number" id="xtest" label="X Cord">
+                <input type="number" id="ytest" label="Y Cord">
+                <input type="number" id="sizetest" label="Size">
+                <button id="Connor's Test Button">Square</button>
+            </div>
+            <hr>
             <h2>Save and Export</h2>
             <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
         </div>

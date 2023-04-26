@@ -54,6 +54,12 @@ function JSMain(){                                  //MAIN FUNCTION
     document.getElementById("circleButton").addEventListener("click", () => addNode("Ellipse","red"," "));
     document.getElementById("triangleButton").addEventListener("click", () => addNode("TriangleUp","green"," "));
 
+    document.getElementById("drumButton").addEventListener("click", () => addCustom("/static/images/drum.png"," "));
+    document.getElementById("guitarButton").addEventListener("click", () => addCustom("/static/images/guitar.png"," "));
+    document.getElementById("pianoButton").addEventListener("click", () => addCustom("/static/images/piano.png"," "));
+    document.getElementById("trumpetButton").addEventListener("click", () => addCustom("/static/images/trumpet.png"," "));
+    document.getElementById("violinButton").addEventListener("click", () => addCustom("/static/images/violin.png"," "));
+
     document.getElementById("exportButton").addEventListener("click", exportToPDF);
 
     document.getElementById("Connor's Test Button").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " ", parseInt(document.getElementById("xtest").value), parseInt(document.getElementById("ytest").value), parseInt(document.getElementById("sizetest").value)));
@@ -75,6 +81,20 @@ function JSMain(){                                  //MAIN FUNCTION
         html2pdf().set(options).from(image).save();
     }//end exportToPDF
 
+    //Function for custom picture nodes
+    function addCustom(imageSrc, text= " "){
+        diagram.add(
+            new go.Node("Auto")
+                .add(new go.Picture(imageSrc, {
+                    width: 50,
+                    height: 30
+                }))
+                .add(new go.TextBlock(text, {
+                    editable: true
+                }))   
+        );
+    }
+
     //New function for adding shapes
     function addNode(nodeType, color, text= " "){
         diagram.add(
@@ -84,8 +104,10 @@ function JSMain(){                                  //MAIN FUNCTION
                     strokewidth: 3
                 }))
                 .add(new go.TextBlock(text, {
-                    margin: 5
-                }))
+                        margin: 5,
+                        editable: true
+                    })
+                )
         );
     }
 
@@ -100,7 +122,8 @@ function JSMain(){                                  //MAIN FUNCTION
                 strokewidth: 3
             }))
             .add(new go.TextBlock(text, {
-                margin: 5
+                margin: 5,
+                editable: true
             }))
         node.location = new go.Point(xcord, ycord);
         diagram.add(node);

@@ -22,9 +22,7 @@
 
 .buttons, p
 {
-    /* position: absolute; */
-    margin-bottom: 20px;
-    margin-left: 40px;
+    padding: 5px;
 }
 
 
@@ -40,3 +38,4 @@
 #workspace {
     margin-left: 20%;
 }
+
