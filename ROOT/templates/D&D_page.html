@@ -9,30 +9,31 @@
         <script src="/static/Javascript.js"></script>
         <script src="/static/PolygonDrawingTool.js"></script>
     </head>
-     
-     <body   id="D&D_body">
-        <div   id="diagramDiv"   style="width:800px; height:800px; background-color: #DAE4E4;">
+
+    <div style="width: 100%;">
+        <div style="width: 10%; height: 710px; float: left;"> 
+            <div class="buttons">
+                <h2>Create Area</h2>
+                <button id="drawStageButton">Draw Stage</button><br><br>
+                <button id="finishDrawingButton">Finish Drawing</button>
+            </div>
+            <hr>
+            <div>
+                <h2>Create Node</h2>
+                <button id="squareButton">Square</button><br><br>
+                <button id="circleButton">Circle</button><br><br>
+                <button id="triangleButton">Triangle</button>
+            </div>
+            <hr>
+        
+            <h2>Save and Export</h2>
+            <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
         </div>
-     </body>
-
-    <div class="buttons">
-        <button id="selectShapeButton">Select</button>
-        <button id="drawStageButton">Draw Stage</button>
-        <button id="finishDrawingButton">Finish Drawing</button>
-    </div>
-    <div>
-        <button id="squareButton">Square</button>
-        <button id="circleButton">Circle</button>
-        <button id="triangleButton">Triangle</button>
-    </div>
-    <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
-
-    <!--CONNOR'S TEST-->
-    <div>
-        <input type="number" id="xtest" label="X Cord">
-        <input type="number" id="ytest" label="Y Cord">
-        <input type="number" id="sizetest" label="Size">
-        <button id="Connor's Test Button">Square</button>
+        <div style="margin-left: 10%; height: 705px;"> 
+            <body   id="D&D_body">
+                <div   id="diagramDiv"   style="width:1100px; height:705px; margin-left: 10%; background-color: #DAE4E4;"></div>
+             </body>
+        </div>
     </div>
 
 </html>
