@@ -8,39 +8,60 @@
         <!--CONNECT TO JAVASCRIPT FILES-->
         <script src="/static/Javascript.js"></script>
         <script src="/static/PolygonDrawingTool.js"></script>
+        <!--CSS link-->
+        <link rel="stylesheet" href="/static/style.css">
     </head>
-     
-     <body   id="D&D_body">
-        <div   id="diagramDiv"   style="width:96%; height:90%; background-color: #DAE4E4;">
+
+    <div style="width: 100%;">
+        <div style="width: 10%; height: 710px; float: left;">
+            <h2>Create Area</h2> 
+            <p>Right click or press enter to finish drawing</p>
+            <div class="buttons">
+                <button id="selectShapeButton">Select</button><br><br>
+                <button id="drawStageButton">Draw Stage</button><br><br>
+                <button id="finishDrawingButton">Finish Drawing</button>
+            </div>
+            <hr>
+            <h2>Create Shape</h2>
+            <div class="buttons">
+                <button id="squareButton">Square</button><br><br>
+                <button id="circleButton">Circle</button><br><br>
+                <button id="triangleButton">Triangle</button><br>
+            </div>
+            <hr>
+            <h2>Create Ruler</h2>
+            <div class="buttons">
+                Measurement<input id="ft_num" type="number" value="">
+                <button id="inches_sel">In.</button>
+                <button id="feet_sel">Ft.</button>
+            </div>
+            <hr>
+            <h2>Create Instrument</h2>
+            <div class="buttons">
+                <button id="pianoButton">Piano</button>
+                <button id="drumButton">Drum</button>
+                <button id="guitarButton">Guitar</button>
+                <button id="trumpetButton">Trumpet</button>
+                <button id="violinButton">Violin</button>
+            </div>
+            <hr>
+            <!--CONNOR'S TEST-->
+            <div>
+                <h2>Create Auto-populate Area</h2>
+                X:<input type="number" id="xtest" label="X Cord">
+                Y:<input type="number" id="ytest" label="Y Cord">
+                Size:<input type="number" id="sizetest" label="Size">
+                <button id="Connor's Test Button">Square</button>
+            </div>
+            <hr>
+            <h2>Save and Export</h2>
+            <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
         </div>
-     </body>
-
-    <div class="buttons">
-        <button id="selectShapeButton">Select</button>
-        <button id="drawStageButton">Draw Stage</button>
-        <button id="finishDrawingButton">Finish Drawing</button>
-    </div>
-    <div>
-        <button id="squareButton">Square</button>
-        <button id="circleButton">Circle</button>
-        <button id="triangleButton">Triangle</button>
-        <br>
-        <div id="ruler_div">
-            <button id="ruler_btn">Ruler</button>
-            Number of ft.<input id="ft_num" type="number" value="">
-            <!-- <button id="inches_sel">In.</button> -->
-            <!-- <button id="feet_sel">Ft.</button> -->
+        <div style="margin-left: 10%; height: 705px;"> 
+            <body   id="D&D_body">
+                <div   id="diagramDiv"   style="width:1100px; height:705px; margin-left: 10%; background-color: #DAE4E4;"></div>
+             </body>
         </div>
-
-    </div>
-    <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
-
-    <!--CONNOR'S TEST-->
-    <div>
-        <input type="number" id="xtest" label="X Cord">
-        <input type="number" id="ytest" label="Y Cord">
-        <input type="number" id="sizetest" label="Size">
-        <button id="Connor's Test Button">Square</button>
     </div>
 
 </html>

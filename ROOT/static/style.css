@@ -1,3 +1,4 @@
+
 #window
 {
     background-color: darkcyan;
@@ -22,8 +23,19 @@
 
 .buttons, p
 {
-    /* position: absolute; */
-    margin-bottom: 20px;
-    margin-left: 40px;
+    padding: 5px;
 }
 
+
+#page {
+    width: 100%;
+}
+
+#menu {
+    float: left;
+    width: 20%;
+}
+
+#workspace {
+    margin-left: 20%;
+}
