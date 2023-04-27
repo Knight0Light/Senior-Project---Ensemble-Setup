@@ -7,7 +7,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
         <!--CONNECT TO JAVASCRIPT FILES-->
         <script src="/static/Javascript.js"></script>
+
         <script src="/static/PolygonDrawingTool.js"></script>
+
         <!--CSS link-->
         <link rel="stylesheet" href="/static/style.css">
     </head>
@@ -15,6 +17,7 @@
     <div style="width: 100%;">
         <div style="width: 10%; height: 710px; float: left;">
             <h2>Create Area</h2> 
+
             <div class="buttons">
                 <button id="selectShapeButton">Select</button><br><br>
                 <button id="drawStageButton">Draw Stage</button><br><br>
@@ -28,6 +31,15 @@
                 <button id="triangleButton">Triangle</button><br>
             </div>
             <hr>
+
+            <h2>Create Ruler</h2>
+            <div class="buttons">
+                Measurement<input id="ft_num" type="number" value="">
+                <button id="inches_sel">In.</button>
+                <button id="feet_sel">Ft.</button>
+            </div>
+            <hr>
+
             <h2>Create Instrument</h2>
             <div class="buttons">
                 <button id="pianoButton">Piano</button>
@@ -40,9 +52,11 @@
             <!--CONNOR'S TEST-->
             <div>
                 <h2>Create Auto-populate Area</h2>
+
                 <input type="number" id="xtest" label="X Cord">
                 <input type="number" id="ytest" label="Y Cord">
                 <input type="number" id="sizetest" label="Size">
+
                 <button id="Connor's Test Button">Square</button>
             </div>
             <hr>
