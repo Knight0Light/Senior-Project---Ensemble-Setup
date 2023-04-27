@@ -12,9 +12,6 @@ function JSMain(){                                  //MAIN FUNCTION
     });
     // diagram.toolManager.panningTool.isEnabled = false;
 
-    // creating instance of local storage for saving and loading diagram from local machine
-    
-
     //DEFINE NODE TEMPLATE
     diagram.nodeTemplate =
         $(go.Node,
@@ -40,7 +37,6 @@ function JSMain(){                                  //MAIN FUNCTION
         )
     ;
 
-    
 
     //CREATE DRAWING TOOL   defined in PolygonDrawingTool.js
     var tool = new PolygonDrawingTool();
@@ -53,14 +49,14 @@ function JSMain(){                                  //MAIN FUNCTION
 
 
     //DEFINE BUTTON LISTENERS
-
-    document.getElementById("selectShapeButton").addEventListener("click", () => mode(false));
     document.getElementById("drawStageButton").addEventListener("click", () => mode(true, true));
-    document.getElementById("finishDrawingButton").addEventListener("click", () => finish(true));
 
     document.getElementById("squareButton").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " "));
     document.getElementById("circleButton").addEventListener("click", () => addNode("Ellipse","red"," "));
     document.getElementById("triangleButton").addEventListener("click", () => addNode("TriangleUp","green"," "));
+
+    document.getElementById("inches_sel").addEventListener("click", () => drawRuler('in'));
+    document.getElementById("feet_sel").addEventListener("click", () => drawRuler('ft'));
 
     document.getElementById("drumButton").addEventListener("click", () => addCustom("/static/images/drum.png"," "));
     document.getElementById("guitarButton").addEventListener("click", () => addCustom("/static/images/guitar.png"," "));
@@ -68,37 +64,47 @@ function JSMain(){                                  //MAIN FUNCTION
     document.getElementById("trumpetButton").addEventListener("click", () => addCustom("/static/images/trumpet.png"," "));
     document.getElementById("violinButton").addEventListener("click", () => addCustom("/static/images/violin.png"," "));
 
-    document.getElementById("exportButton").addEventListener("click", exportToPDF);
-
-    document.getElementById("Connor's Test Button").addEventListener("click", () => addNode("RoundedRectangle","lightblue", " ", parseInt(document.getElementById("xtest").value), parseInt(document.getElementById("ytest").value), parseInt(document.getElementById("sizetest").value)));
+    document.getElementById("exportButton").addEventListener("click", () => exportToPDF());
+} //end main
 
     //DEFINE FUNCTIONS
+{
     function exportToPDF(){                         //EXPORT BUTTON
-        var image = document.getElementById("D&D_body");
-        //8.5x11 paper has 2550x3300 pixel size
-        image.style.width = "2550px";
-        image.style.height = "900px";
+        var image = document.getElementById("diagramDiv");
+        //8.5x11 paper has 2550x3300 pixel size, BUT OUR DIV HAS DIFFERENT SIZE and needs to be compressed into a shape that will fit on the page
+        image.style.width = "900px";
+        image.style.height = "775px";
         //set file options
         var options = {
-            margin:     0.5,
+            margin:     0.1,
             filename:   "stage_setup_app.pdf",
             image:      {type: "jpeg", quality: 1},
             html2canvas:{scale: 1},
-            jsPDF:      {unit: "in", format: "letter", orientation: "portrait", precision: "12"}
+            jsPDF:      {unit: "in", format: "letter", orientation: "landscape", precision: "12"}
         };
         html2pdf().set(options).from(image).save();
     }//end exportToPDF
 
     //Function for custom picture nodes
     function addCustom(imageSrc, text= " "){
+    console.log("TEST");
         diagram.add(
-            new go.Node("Auto")
+            new go.Node("Auto",
+            {
+                rotatable: true,
+                resizable: true,
+                resizeObjectName: "IMAGE",
+                rotateObjectName: "IMAGE"
+            }
+            )
                 .add(new go.Picture(imageSrc, {
+                    name: "IMAGE",
                     width: 50,
                     height: 30
                 }))
                 .add(new go.TextBlock(text, {
-                    editable: true
+                    editable: true,
+                    stroke: "red"
                 }))   
         );
     }
@@ -106,23 +112,23 @@ function JSMain(){                                  //MAIN FUNCTION
     //New function for adding shapes
     function addNode(nodeType, color, text= " "){
         diagram.add(
-            new go.Node("Auto")
+            new go.Node("Auto", {rotatable: true, resizable: true})
                 .add(new go.Shape(nodeType, {
                     fill: color,
                     strokewidth: 3
                 }))
                 .add(new go.TextBlock(text, {
-                        margin: 5,
-                        editable: true
+                        editable: true,
+                        margin: 3,
+                        font: "8pt sans-serif"
                     })
                 )
         );
     }
 
-
     //New function for adding shapes at a specific x,y
     function addNode(nodeType, color, text= " ", xcord, ycord, size){
-        var node = new go.Node("Auto")
+        var node = new go.Node("Auto", {rotatable: true, resizable: true})
             .add(new go.Shape(nodeType, {
                 width: size,
                 height: size,
@@ -130,13 +136,15 @@ function JSMain(){                                  //MAIN FUNCTION
                 strokewidth: 3
             }))
             .add(new go.TextBlock(text, {
-                margin: 5,
-                editable: true
+                editable: true,
+                margin: 3,
+                font: "8pt sans-serif"
             }))
         node.location = new go.Point(xcord, ycord);
         diagram.add(node);
     }
 
+    //Sets mode for polygon drawing tool
     function mode(draw, polygon) {
         // assume PolygonDrawingTool is the first tool in the mouse-down-tools list
         var tool = diagram.toolManager.mouseDownTools.elt(0);
@@ -160,8 +168,7 @@ function JSMain(){                                  //MAIN FUNCTION
         }
     }
 
-    function drawRuler(unit)
-    {
+    function drawRuler(unit){
         ruler_num = document.getElementById("ft_num").value;
         
         // only using feet currently for testing
