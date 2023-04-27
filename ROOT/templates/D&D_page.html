@@ -7,9 +7,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
         <!--CONNECT TO JAVASCRIPT FILES-->
         <script src="/static/Javascript.js"></script>
-
-        <script src="/static/PolygonDrawingTool.js"></script>
-
         <!--CSS link-->
         <link rel="stylesheet" href="/static/style.css">
     </head>
@@ -19,9 +16,8 @@
             <h2>Create Area</h2> 
 
             <div class="buttons">
-                <button id="selectShapeButton">Select</button><br><br>
                 <button id="drawStageButton">Draw Stage</button><br><br>
-                <button id="finishDrawingButton">Finish Drawing</button>
+                <p>Click the corners of the stage or seating area you would like to draw, then press ENTER to finish.</p>
             </div>
             <hr>
             <h2>Create Shape</h2>
@@ -48,25 +44,11 @@
                 <button id="trumpetButton">Trumpet</button>
                 <button id="violinButton">Violin</button>
             </div>
-            <hr>
-            <!--CONNOR'S TEST-->
-            <div>
-                <h2>Create Auto-populate Area</h2>
-
-                <input type="number" id="xtest" label="X Cord">
-                <input type="number" id="ytest" label="Y Cord">
-                <input type="number" id="sizetest" label="Size">
-
-                <button id="Connor's Test Button">Square</button>
-            </div>
-            <hr>
             <h2>Save and Export</h2>
-            <button type="button" id="exportButton" onclick="exportToPDF()">Export to PDF</button>
+            <button type="button" id="exportButton">Export to PDF</button>
         </div>
-        <div style="margin-left: 10%; height: 705px;"> 
-            <body   id="D&D_body">
-                <div   id="diagramDiv"   style="width:1100px; height:705px; margin-left: 10%; background-color: #DAE4E4;"></div>
-             </body>
+        <div style="margin-left: 10%; height: 705px;" id="D&D_div">
+            <div   id="diagramDiv"   style="width:900px; height:775px; margin-left: 10%; background-color: #DAE4E4;"></div>
         </div>
     </div>
 
