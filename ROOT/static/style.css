@@ -24,6 +24,21 @@
 .buttons, p
 {
     padding: 5px;
+
+}
+
+
+#page {
+    width: 100%;
+}
+
+#menu {
+    float: left;
+    width: 20%;
+}
+
+#workspace {
+    margin-left: 20%;
 }
 
 
